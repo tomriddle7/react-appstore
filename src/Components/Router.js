@@ -18,11 +18,6 @@ export default () => (
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/application" exact component={Application} />
-        <Route path="/game" exact component={Game} />
-        <Route path="/search" component={Search} />
-        <Route path="/application/:id" component={Detail} />
-        <Route path="/game/:id" component={Detail} />
         <Redirect from="*" to="/" />
       </Switch>
     </>
