@@ -8,9 +8,9 @@ export default class extends React.Component {
     results: []
   };
   componentDidMount() {
-    this.getPrices();
+    this.getHome();
   }
-  getPrices = async () => {
+  getHome = async () => {
     try {
       const { data: feed } = await getHome();
       this.setState({
