@@ -1,4 +1,3 @@
-import AppContainer from "./ApplicationContainer";
-import React from "react";
+import ApplicationContainer from "./ApplicationContainer";
 
-export default () => <h1>App!</h1>;
+export default ApplicationContainer;

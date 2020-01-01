@@ -20,7 +20,8 @@ export default () => (
         <Route path="/application" exact component={Application} />
         <Route path="/game" exact component={Game} />
         <Route path="/search" component={Search} />
-        <Route path="/detail/:id" component={Detail} />
+        <Route path="/application/:id" component={Detail} />
+        <Route path="/game/:id" component={Detail} />
         <Redirect from="*" to="/" />
       </Switch>
       <Footer />

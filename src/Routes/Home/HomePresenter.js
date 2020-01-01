@@ -1,20 +1,56 @@
 import React from "react";
-import Loader from "../../Components/Loader";
 import PropTypes from "prop-types";
-import Apps from "../../Components/Apps";
+import styled from "styled-components";
+import Helmet from "react-helmet";
+//import Section from "../../Components/Section";
+import Loader from "../../Components/Loader";
+import Room from "../../Components/Room";
 
-const HomePresenters = ({ loading, error, results }) => {
+const Container = styled.div`
+  padding: 20px;
+`;
+
+const HomePresenters = ({ upcomingApps, upcomingGames, error, loading }) => {
   return loading ? (
     <Loader />
   ) : (
-    results.map(p => (
-      <Apps key={parseInt(p.id)} id={p.id} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100} />
-    ))
+    <Container>
+      <Helmet>
+          <title>Home | NomadStore</title>
+      </Helmet>
+      <h1>{upcomingApps.title}</h1>
+      <div>
+          {upcomingApps.results.map(p => (
+            <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100} />
+          ))}
+      </div>
+      <h1>{upcomingGames.title}</h1>
+      <div>
+          {upcomingGames.results.map(p => (
+            <Room key={parseInt(p.id)} id={p.id} isGame={true} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100} />
+          ))}
+      </div>
+    </Container>
   );
 };
 
 HomePresenters.propTypes = {
-    results: PropTypes.arrayOf(PropTypes.shape({
+    upcomingApps: PropTypes.arrayOf(PropTypes.shape({
+      artistId: PropTypes.string.isRequired,
+      artistName: PropTypes.string.isRequired,
+      artistUrl: PropTypes.string.isRequired,
+      artworkUrl100: PropTypes.string.isRequired,
+      copyright: PropTypes.string.isRequired,
+      genres: PropTypes.arrayOf(PropTypes.shape({
+        genreId: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired
+      }).isRequired),
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired
+    }).isRequired),
+    upcomingGames: PropTypes.arrayOf(PropTypes.shape({
       artistId: PropTypes.string.isRequired,
       artistName: PropTypes.string.isRequired,
       artistUrl: PropTypes.string.isRequired,

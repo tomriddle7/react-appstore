@@ -1,23 +1,33 @@
 import React from "react";
 import HomePresenter from "./HomePresenter";
-import { getHome } from "../../api";
+import { getUpcomingApps, getUpcomingGames } from "../../api";
 
 export default class extends React.Component {
   state = {
-    loading: true,
-    results: []
+    upcomingApps: null,
+    upcomingGames: null,
+    error: null,
+    loading: true
   };
   componentDidMount() {
     this.getHome();
   }
   getHome = async () => {
     try {
-      const { data: feed } = await getHome();
+      const {
+        data: { feed: upcomingApps }
+      } = await getUpcomingApps();
+      const {
+        data: { feed: upcomingGames }
+      } = await getUpcomingGames();
       this.setState({
-        results: feed.feed.results
+        upcomingApps,
+        upcomingGames
       });
     } catch (e) {
-      console.log(e);
+      this.setState({
+        error: "Can't find app information."
+      });
     } finally {
       this.setState({ loading: false });
     }
