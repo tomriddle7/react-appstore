@@ -17,7 +17,7 @@ const Scope60 = styled("div")`
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  font-size:5vw;
+  font-size:14pt;
 `;
 
 const Scope20 = styled("div")`
@@ -28,7 +28,7 @@ const Scope20 = styled("div")`
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  font-size:5vw;
+  font-size:16pt;
   color: #0b84fe;
 `;
 
