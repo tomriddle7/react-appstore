@@ -10,7 +10,7 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const GamePresenters = ({ topFreeGames, topPaidGames, error, loading }) => {
+const GamePresenter = ({ topFreeGames, topPaidGames, error, loading }) => {
   return loading ? (
     <Loader />
   ) : (
@@ -32,7 +32,7 @@ const GamePresenters = ({ topFreeGames, topPaidGames, error, loading }) => {
   );
 };
 
-GamePresenters.propTypes = {
+GamePresenter.propTypes = {
     topFreeGames: PropTypes.arrayOf(PropTypes.shape({
       artistId: PropTypes.string.isRequired,
       artistName: PropTypes.string.isRequired,
@@ -67,4 +67,4 @@ GamePresenters.propTypes = {
     error: PropTypes.string
   };
   
-  export default GamePresenters;
+  export default GamePresenter;

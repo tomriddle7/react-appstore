@@ -10,7 +10,7 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const ApplicationPresenters = ({ topFreeApps, topPaidApps, error, loading }) => {
+const ApplicationPresenter = ({ topFreeApps, topPaidApps, error, loading }) => {
   return loading ? (
     <Loader />
   ) : (
@@ -32,7 +32,7 @@ const ApplicationPresenters = ({ topFreeApps, topPaidApps, error, loading }) => 
   );
 };
 
-ApplicationPresenters.propTypes = {
+ApplicationPresenter.propTypes = {
     topFreeApps: PropTypes.arrayOf(PropTypes.shape({
       artistId: PropTypes.string.isRequired,
       artistName: PropTypes.string.isRequired,
@@ -67,4 +67,4 @@ ApplicationPresenters.propTypes = {
     error: PropTypes.string
   };
   
-  export default ApplicationPresenters;
+  export default ApplicationPresenter;

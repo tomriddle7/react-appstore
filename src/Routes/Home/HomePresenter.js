@@ -10,7 +10,7 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const HomePresenters = ({ upcomingApps, upcomingGames, error, loading }) => {
+const HomePresenter = ({ upcomingApps, upcomingGames, error, loading }) => {
   return loading ? (
     <Loader />
   ) : (
@@ -32,7 +32,7 @@ const HomePresenters = ({ upcomingApps, upcomingGames, error, loading }) => {
   );
 };
 
-HomePresenters.propTypes = {
+HomePresenter.propTypes = {
     upcomingApps: PropTypes.arrayOf(PropTypes.shape({
       artistId: PropTypes.string.isRequired,
       artistName: PropTypes.string.isRequired,
@@ -67,4 +67,4 @@ HomePresenters.propTypes = {
     error: PropTypes.string
   };
   
-  export default HomePresenters;
+  export default HomePresenter;
