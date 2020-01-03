@@ -1,11 +1,11 @@
 import React from "react";
-import ApplicationPresenter from "./ApplicationPresenter";
-import { getTopFreeApps, getTopPaidApps } from "../../api";
+import GamePresenter from "./GamePresenter";
+import { getTopFreeGames, getTopPaidGames } from "../../api";
 
 export default class extends React.Component {
   state = {
-    topFreeApps: null,
-    topPaidApps: null,
+    topFreeGames: null,
+    topPaidGames: null,
     error: null,
     loading: true
   };
@@ -15,24 +15,24 @@ export default class extends React.Component {
   getGames = async () => {
     try {
       const {
-        data: { feed: topFreeApps }
-      } = await getTopFreeApps();
+        data: { feed: topFreeGames }
+      } = await getTopFreeGames();
       const {
-        data: { feed: topPaidApps }
-      } = await getTopPaidApps();
+        data: { feed: topPaidGames }
+      } = await getTopPaidGames();
       this.setState({
-        topFreeApps,
-        topPaidApps
+        topFreeGames,
+        topPaidGames
       });
     } catch (e) {
       this.setState({
-        error: "Can't find app information."
+        error: "Can't find game information."
       });
     } finally {
       this.setState({ loading: false });
     }
   };
   render() {
-    return <ApplicationPresenter {...this.state} />;
+    return <GamePresenter {...this.state} />;
   }
 }

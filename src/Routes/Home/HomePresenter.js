@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
-//import Section from "../../Components/Section";
+import Section from "../../Components/Section";
 import Loader from "../../Components/Loader";
 import Room from "../../Components/Room";
 
@@ -18,18 +18,16 @@ const HomePresenters = ({ upcomingApps, upcomingGames, error, loading }) => {
       <Helmet>
           <title>Home | NomadStore</title>
       </Helmet>
-      <h1>{upcomingApps.title}</h1>
-      <div>
-          {upcomingApps.results.map(p => (
-            <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100} />
-          ))}
-      </div>
-      <h1>{upcomingGames.title}</h1>
-      <div>
-          {upcomingGames.results.map(p => (
-            <Room key={parseInt(p.id)} id={p.id} isGame={true} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100} />
-          ))}
-      </div>
+      <Section title={upcomingApps.title}>
+        {upcomingApps.results.map(p => (
+          <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
+        ))}
+      </Section>
+      <Section title={upcomingGames.title}>
+        {upcomingGames.results.map(p => (
+          <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
+        ))}
+      </Section>
     </Container>
   );
 };

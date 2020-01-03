@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
-//import Section from "../../Components/Section";
+import Section from "../../Components/Section";
 import Loader from "../../Components/Loader";
 import Room from "../../Components/Room";
 
@@ -18,24 +18,22 @@ const ApplicationPresenters = ({ topFreeApps, topPaidApps, error, loading }) => 
       <Helmet>
           <title>Apps | NomadStore</title>
       </Helmet>
-      <h1>{topFreeApps.title}</h1>
-      <div>
-          {topFreeApps.results.map(p => (
-            <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100} />
-          ))}
-      </div>
-      <h1>{topPaidApps.title}</h1>
-      <div>
-          {topPaidApps.results.map(p => (
-            <Room key={parseInt(p.id)} id={p.id} isGame={true} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100} />
-          ))}
-      </div>
+      <Section title={topFreeApps.title}>
+        {topFreeApps.results.map(p => (
+          <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
+        ))}
+      </Section>
+      <Section title={topPaidApps.title}>
+        {topPaidApps.results.map(p => (
+          <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
+        ))}
+      </Section>
     </Container>
   );
 };
 
 ApplicationPresenters.propTypes = {
-    getTopFreeApps: PropTypes.arrayOf(PropTypes.shape({
+    topFreeApps: PropTypes.arrayOf(PropTypes.shape({
       artistId: PropTypes.string.isRequired,
       artistName: PropTypes.string.isRequired,
       artistUrl: PropTypes.string.isRequired,
@@ -50,7 +48,7 @@ ApplicationPresenters.propTypes = {
       name: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired
     }).isRequired),
-    getTopPaidApps: PropTypes.arrayOf(PropTypes.shape({
+    topPaidApps: PropTypes.arrayOf(PropTypes.shape({
       artistId: PropTypes.string.isRequired,
       artistName: PropTypes.string.isRequired,
       artistUrl: PropTypes.string.isRequired,
