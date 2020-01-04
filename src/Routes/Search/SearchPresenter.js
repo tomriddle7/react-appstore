@@ -35,19 +35,19 @@ const SearchPresenters = ({
     </Helmet>
     <Form onSubmit={handleSubmit}>
       <Input
-        placeholder="Search Movies or TV Shows..."
+        placeholder="Search App or Game..."
         value={searchTerm}
         onChange={updateTerm}
       />
     </Form>
     {loading ? (
       <Loader />
-    ) : (
+      ) : (
       <>
         {appResults && appResults.length > 0 && (
-          <Section title={appResults.title}>
-            {appResults.results.map(p => (
-            <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
+          <Section title={"검색결과"}>
+            {appResults.map(p => (
+            <Room key={parseInt(p.trackId)} id={p.trackId} isGame={p.primaryGenreName == "Games" ? true : false} name={p.trackName} genresName={p.primaryGenreName} url={p.trackViewUrl} artworkUrl100={p.artworkUrl100}/>
           ))}
           </Section>
         )}

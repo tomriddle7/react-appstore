@@ -33,11 +33,14 @@ export default class extends React.Component {
     try {
       const {
         data: { results: appResults }
-      } = await getSearch.search(searchTerm);
-      console.log(appResults);
+      } = await getSearch(searchTerm);
+      this.setState({
+        appResults
+      });
     } catch {
       this.setState({ error: "Can't find results." });
     } finally {
+      console.log(this.state);
       this.setState({ loading: false });
     }
   };
