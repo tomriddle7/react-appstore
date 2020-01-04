@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/nomad_store/static/js/main.b3c86a5b.chunk.js",
+    "main.js.map": "/nomad_store/static/js/main.b3c86a5b.chunk.js.map",
+    "runtime-main.js": "/nomad_store/static/js/runtime-main.f9e59621.js",
+    "runtime-main.js.map": "/nomad_store/static/js/runtime-main.f9e59621.js.map",
+    "static/js/2.602c7fe7.chunk.js": "/nomad_store/static/js/2.602c7fe7.chunk.js",
+    "static/js/2.602c7fe7.chunk.js.map": "/nomad_store/static/js/2.602c7fe7.chunk.js.map",
+    "index.html": "/nomad_store/index.html",
+    "precache-manifest.268621b9aaf69cfb3534ea14f2fe7e1a.js": "/nomad_store/precache-manifest.268621b9aaf69cfb3534ea14f2fe7e1a.js",
+    "service-worker.js": "/nomad_store/service-worker.js",
+    "static/js/2.602c7fe7.chunk.js.LICENSE": "/nomad_store/static/js/2.602c7fe7.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f9e59621.js",
+    "static/js/2.602c7fe7.chunk.js",
+    "static/js/main.b3c86a5b.chunk.js"
+  ]
+}
