@@ -3,6 +3,9 @@ import DetailPresenter from "./DetailPresenter";
 import { getDetail } from "../../api";
 
 export default class extends React.Component {
+  goBack = () => {
+    this.props.history.goBack();
+  }
   state = {
     loading: true,
     results: {}
@@ -23,7 +26,6 @@ export default class extends React.Component {
         return push("/");
       }
       const { data: detail } = await getDetail(parsedId);
-      console.log(detail.results[0]);
       this.setState({
         results: detail.results[0]
       });
