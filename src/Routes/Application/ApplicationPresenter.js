@@ -18,12 +18,12 @@ const ApplicationPresenter = ({ topFreeApps, topPaidApps, error, loading }) => {
       <Helmet>
           <title>Apps | NomadStore</title>
       </Helmet>
-      <Section title={topFreeApps.title}>
+      <Section title={"인기 무료 앱"}>
         {topFreeApps.results.map(p => (
           <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
         ))}
       </Section>
-      <Section title={topPaidApps.title}>
+      <Section title={"인기 유료 앱"}>
         {topPaidApps.results.map(p => (
           <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
         ))}

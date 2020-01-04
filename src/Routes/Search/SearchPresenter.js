@@ -35,7 +35,7 @@ const SearchPresenters = ({
     </Helmet>
     <Form onSubmit={handleSubmit}>
       <Input
-        placeholder="Search App or Game..."
+        placeholder="게임, 앱, 스토리 등"
         value={searchTerm}
         onChange={updateTerm}
       />

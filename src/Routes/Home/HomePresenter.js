@@ -18,12 +18,12 @@ const HomePresenter = ({ upcomingApps, upcomingGames, error, loading }) => {
       <Helmet>
           <title>Home | NomadStore</title>
       </Helmet>
-      <Section title={upcomingApps.title}>
+      <Section title={"새롭게 추천하는 앱"}>
         {upcomingApps.results.map(p => (
           <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
         ))}
       </Section>
-      <Section title={upcomingGames.title}>
+      <Section title={"새롭게 추천하는 게임"}>
         {upcomingGames.results.map(p => (
           <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
         ))}
