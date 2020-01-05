@@ -18,7 +18,7 @@ const Grid = styled.div`
 `;
 
 const Section = ({ title, children }) => (
-  <Container>
+  <Container className="mobileShow">
     <Title>{title}</Title>
     <Grid>{children}</Grid>
   </Container>

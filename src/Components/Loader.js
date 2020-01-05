@@ -11,7 +11,7 @@ const Container = styled.div`
 `;
 
 export default () => (
-  <Container>
+  <Container className="mobileShow">
     <span role="img" aria-label="Loading">
       ⏰
     </span>

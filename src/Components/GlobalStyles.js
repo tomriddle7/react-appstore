@@ -17,6 +17,16 @@ const globalStyles = createGlobalStyle`
         color:white;
         padding-bottom:70px;
     }
+    .mobileShow{
+        @media only screen and (min-width: 768px) {
+            display: none;
+        }
+    }
+    .desktopShow{
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
+    }
 `;
 
 export default globalStyles;

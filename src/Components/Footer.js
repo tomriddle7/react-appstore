@@ -37,7 +37,7 @@ const SLink = styled(Link)`
 `;
 
 export default withRouter(({ location: { pathname } }) => (
-  <Footer>
+  <Footer className="mobileShow">
     <List>
       <Item current={pathname === "/"}>
         <SLink to="/">Home</SLink>
