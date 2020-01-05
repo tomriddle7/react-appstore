@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8b6a346937c9671a04e13ef6c267f04c",
+    "revision": "21b62fafb9bf633b1445f0df7bd337a0",
     "url": "/nomad_store/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nomad_store/static/js/2.602c7fe7.chunk.js.LICENSE"
   },
   {
-    "revision": "8d4494167dc9776b557c",
-    "url": "/nomad_store/static/js/main.14697ebb.chunk.js"
+    "revision": "3a935c41000d203fff1d",
+    "url": "/nomad_store/static/js/main.6cc82812.chunk.js"
   },
   {
     "revision": "e39a1334b5e5a2e19b90",
