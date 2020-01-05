@@ -18,16 +18,20 @@ const ApplicationPresenter = ({ topFreeApps, topPaidApps, error, loading }) => {
       <Helmet>
           <title>Apps | NomadStore</title>
       </Helmet>
-      <Section title={"인기 무료 앱"}>
-        {topFreeApps.results.map(p => (
-          <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
-        ))}
-      </Section>
-      <Section title={"인기 유료 앱"}>
-        {topPaidApps.results.map(p => (
-          <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name} genresName={p.genres[0].name} url={p.url} artworkUrl100={p.artworkUrl100}/>
-        ))}
-      </Section>
+      {topFreeApps.results && topFreeApps.results.length > 0 && (
+        <Section title={topFreeApps.title}>
+          {topFreeApps.results.map(p => (
+            <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
+          ))}
+        </Section>
+      )}
+      {topPaidApps.results && topPaidApps.results.length > 0 && (
+        <Section title={topPaidApps.title}>
+          {topPaidApps.results.map(p => (
+            <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
+          ))}
+        </Section>
+      )}
     </Container>
   );
 };

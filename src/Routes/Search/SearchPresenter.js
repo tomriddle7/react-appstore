@@ -47,8 +47,8 @@ const SearchPresenters = ({
         {appResults && appResults.length > 0 && (
           <Section title={"검색결과"}>
             {appResults.map(p => (
-            <Room key={parseInt(p.trackId)} id={p.trackId} isGame={p.primaryGenreName == "Games" ? true : false} name={p.trackName} genresName={p.primaryGenreName} url={p.trackViewUrl} artworkUrl100={p.artworkUrl100}/>
-          ))}
+              <Room key={parseInt(p.trackId)} id={p.trackId} isGame=  {p.primaryGenreName == "Games" ? true : false} name={p.trackName}   genresName={p.primaryGenreName} url={p.trackViewUrl} artworkUrl100= {p.artworkUrl100}/>
+            ))}
           </Section>
         )}
       </>
