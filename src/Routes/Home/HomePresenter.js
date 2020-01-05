@@ -18,14 +18,14 @@ const HomePresenter = ({ upcomingApps, upcomingGames, error, loading }) => {
       <Helmet>
           <title>Home | NomadStore</title>
       </Helmet>
-      {upcomingApps.results && upcomingApps.results.length > 0 && (
+      {upcomingApps && upcomingApps.results && upcomingApps.results.length > 0 && (
         <Section title={upcomingApps.title}>
           {upcomingApps.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
           ))}
         </Section>
       )}
-      {upcomingGames.results && upcomingGames.results.length > 0 && (
+      {upcomingGames && upcomingGames.results && upcomingGames.results.length > 0 && (
         <Section title={upcomingGames.title}>
           {upcomingGames.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>

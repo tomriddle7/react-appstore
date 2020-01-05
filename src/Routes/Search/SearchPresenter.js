@@ -31,7 +31,7 @@ const SearchPresenters = ({
 }) => (
   <Container>
     <Helmet>
-      <title>Search | Nomflix</title>
+      <title>Search | NomadStore</title>
     </Helmet>
     <Form onSubmit={handleSubmit}>
       <Input

@@ -16,16 +16,16 @@ const GamePresenter = ({ topFreeGames, topPaidGames, error, loading }) => {
   ) : (
     <Container>
       <Helmet>
-          <title>Apps | NomadStore</title>
+          <title>Games | NomadStore</title>
       </Helmet>
-      {topFreeGames.results && topFreeGames.results.length > 0 && (
+      {topFreeGames && topFreeGames.results && topFreeGames.results.length > 0 && (
         <Section title={topFreeGames.title}>
           {topFreeGames.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
           ))}
         </Section>
       )}
-      {topPaidGames.results && topPaidGames.results.length > 0 && (
+      {topPaidGames && topPaidGames.results && topPaidGames.results.length > 0 && (
         <Section title={topPaidGames.title}>
           {topPaidGames.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
