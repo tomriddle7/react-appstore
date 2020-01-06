@@ -115,7 +115,7 @@ const DetailPresenter = ({ loading, error, results }) =>
       <Loader />
     </>
   ) : (
-    <Container>
+    <Container className="mobileShow">
       <Helmet>
           <title>{results.trackName} | NomadStore</title>
       </Helmet>
