@@ -5,7 +5,6 @@ import Helmet from "react-helmet";
 import { Route, Link, withRouter } from "react-router-dom";
 import Loader from "../../Components/Loader";
 
-
 const Container = styled.div`
   height: calc(100vh + 100px);
   width: 100%;
@@ -104,9 +103,7 @@ const Divider = styled.span`
   margin: 0 10px;
 `;
 
-
-
-const DetailPresenter = ({ loading, error, results }) =>
+const DetailPresenter = ({ loading, error, results, goBack }) =>
   loading ? (
     <>
       <Helmet>
@@ -119,7 +116,7 @@ const DetailPresenter = ({ loading, error, results }) =>
       <Helmet>
           <title>{results.trackName} | NomadStore</title>
       </Helmet>
-      <button>뒤로가기</button>
+      <button onClick={goBack}>뒤로가기</button>
       <Summary>
         <Scope widthPer={20}>
           <Icon bgUrl={results.artworkUrl100}></Icon>
@@ -215,6 +212,7 @@ DetailPresenter.propTypes = {
       version: PropTypes.string.isRequired,
       wrapperType: PropTypes.string.isRequired,
     }).isRequired),
+    goBack: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.string
   };

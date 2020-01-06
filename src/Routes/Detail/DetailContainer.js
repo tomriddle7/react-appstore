@@ -3,13 +3,14 @@ import DetailPresenter from "./DetailPresenter";
 import { getDetail } from "../../api";
 
 export default class extends React.Component {
+  state = {
+    loading: true,
+    error: null,
+    results: {}
+  };
   goBack = () => {
     this.props.history.goBack();
   }
-  state = {
-    loading: true,
-    results: {}
-  };
   componentDidMount() {
     this.getDetail();
   }
@@ -36,6 +37,14 @@ export default class extends React.Component {
     }
   };
   render() {
-    return <DetailPresenter {...this.state} />;
+    const { loading, error, results } = this.state;
+    return (
+      <DetailPresenter
+        results={results}
+        loading={loading}
+        error={error}
+        goBack={this.goBack}
+      />
+    );
   }
 }
