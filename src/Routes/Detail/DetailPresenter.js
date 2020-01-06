@@ -10,7 +10,7 @@ const Container = styled.div`
   height: calc(100vh + 100px);
   width: 100%;
   position: relative;
-  padding: 50px;
+  padding: 20px;
 `;
 
 const Content = styled.div`
