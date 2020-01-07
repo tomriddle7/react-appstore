@@ -49,6 +49,7 @@ const Button = styled("a")`
   background: #1c1c1e;
   padding: 10px;
   color: #0b84fe;
+  text-align: center;
 `;
 
 const ScreenShotP = styled.div`
@@ -64,7 +65,7 @@ const ScreenShot = styled.div`
   margin: 2px;
 `;
 
-const UpdateP = styled.div`
+const UpdateviewP = styled.div`
   line-height: 1.5;
 `;
 
@@ -73,24 +74,25 @@ const OverviewP = styled.div`
 `;
 
 const Overview = styled.div`
+  width:100%;
   line-height: 1.5;
   display: flex;
+  flex-direction: row;
 `;
 
-const Overview2 = styled.p`
-  font-size: 12px;
-  opacity: 0.7;
-  line-height: 1.5;
-  width: 50%;
+const View = styled.h1`
+  width:50%;
+  text-align: ${props => props.align};
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 `;
 
 const Data = styled.div`
   width: 70%;
   margin-left: 10px;
-`;
-
-const Title = styled.h3`
-  font-size: 32px;
 `;
 
 const ItemContainer = styled.div`
@@ -137,38 +139,33 @@ const DetailPresenter = ({ loading, error, results, goBack }) =>
         ))}
       </ScreenShotP>
       <h1>{results.description}</h1>
-      <UpdateP>
+      <UpdateviewP>
         <h1>새로운 기능</h1>
-        <h1>{results.version}</h1>
-        <h1>{results.currentVersionReleaseDate}</h1>
+        <h1>버전 {results.version}</h1>
+        <h1>{results.currentVersionReleaseDate.substr(0,4)}년 {results.currentVersionReleaseDate.substr(5,2)}월 {results.currentVersionReleaseDate.substr(8,2)}일</h1>
         <h1>{results.releaseNotes}</h1>
-      </UpdateP>
+      </UpdateviewP>
       <OverviewP>
         <h1>정보</h1>
         <Overview>
-          <h1>제공자</h1>
-          <h1>:</h1>
-          <h1>{results.sellerName}</h1>
+          <View align={"left"}>제공자</View>
+          <View align={"right"}>{results.sellerName}</View>
         </Overview>
         <Overview>
-          <h1>크기</h1>
-          <h1>:</h1>
-          <h1>{(results.fileSizeBytes/1024/1024).toFixed(1)}MB</h1>
+          <View align={"left"}>크기</View>
+          <View align={"right"}>{(results.fileSizeBytes/1024/1024).toFixed(1)}MB</View>
         </Overview>
         <Overview>
-          <h1>카테고리</h1>
-          <h1>:</h1>
-          <h1>{results.primaryGenreName}</h1>
+          <View align={"left"}>카테고리</View>
+          <View align={"right"}>{results.primaryGenreName}</View>
         </Overview>
         <Overview>
-          <h1>언어</h1>
-          <h1>:</h1>
-          <h1>{results.languageCodesISO2A}</h1>
+          <View align={"left"}>언어</View>
+          <View align={"right"}>{results.languageCodesISO2A}</View>
         </Overview>
         <Overview>
-          <h1>연령 등급</h1>
-          <h1>:</h1>
-          <h1>{results.contentAdvisoryRating}</h1>
+          <View align={"left"}>연령 등급</View>
+          <View align={"right"}>{results.contentAdvisoryRating}</View>
         </Overview>
       </OverviewP>
     </Container>

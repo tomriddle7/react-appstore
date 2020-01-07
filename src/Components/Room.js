@@ -8,6 +8,7 @@ const Container = styled("div")`
   display: flex;
   flex-direction: row;
   background-color: #000000;
+  padding: 20px 0px;
 `;
 
 const Scope60 = styled("div")`
@@ -17,6 +18,7 @@ const Scope60 = styled("div")`
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  padding: 0px 10px;
 `;
 
 const Scope20 = styled("div")`
@@ -38,12 +40,12 @@ const Image = styled("div")`
   border-radius: 22.37%;
 `;
 
-const PsudoButton = styled("p")`
+const Button = styled("a")`
   border-radius: 25px;
   background: #1c1c1e;
   padding: 10px;
-  font-size:12pt;
   color: #0b84fe;
+  text-align: center;
 `;
 
 const Name = styled("span")`
@@ -67,7 +69,7 @@ const Room = ({ id, isGame, name, genresName, url, artworkUrl100 }) => (
       <Genre>{genresName}</Genre>
     </Scope60>
     <Scope20>
-      <PsudoButton>받기</PsudoButton>
+      <Button target="_blank" href={url}>받기</Button>
     </Scope20>
     </Container>
   </Link>

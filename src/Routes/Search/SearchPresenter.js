@@ -11,8 +11,11 @@ const Container = styled.div`
 `;
 
 const Form = styled.form`
-  margin-bottom: 50px;
+  border-radius: 16px;
   width: 100%;
+  height: 50px;
+  padding: 10px;
+  background-color: #2a2a2d;
 `;
 
 const Input = styled.input`
@@ -35,7 +38,7 @@ const SearchPresenters = ({
     </Helmet>
     <Form onSubmit={handleSubmit}>
       <Input
-        placeholder="게임, 앱, 스토리 등"
+        placeholder="🔍게임, 앱, 스토리 등"
         value={searchTerm}
         onChange={updateTerm}
       />
