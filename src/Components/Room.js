@@ -8,7 +8,7 @@ const Container = styled("div")`
   display: flex;
   flex-direction: row;
   background-color: #000000;
-  padding: 20px 0px;
+  padding: 10px 0px;
 `;
 
 const Scope60 = styled("div")`
