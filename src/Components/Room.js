@@ -8,7 +8,7 @@ const Container = styled("div")`
   display: flex;
   flex-direction: row;
   background-color: #000000;
-  padding: 10px 0px;
+  padding: 2px 0px;
 `;
 
 const Scope60 = styled("div")`
@@ -58,22 +58,29 @@ const Genre = styled("span")`
   color: #808084;
 `;
 
+const Line = styled.hr`
+  width: 95%;
+  color: #808084;
+`;
+
 const Room = ({ id, isGame, name, genresName, url, artworkUrl100 }) => (
-  <Link to={isGame ? `/game/${id}` : `/application/${id}`}>
-    <Container>
-    <Scope20>
-      <Image bgUrl={artworkUrl100}></Image>
-    </Scope20>
-    <Scope60>
-      <Name>{name}</Name>
-      <Genre>{genresName}</Genre>
-    </Scope60>
-    <Scope20>
-      <Button target="_blank" href={url}>받기</Button>
-    </Scope20>
-    </Container>
-  </Link>
-  
+  <>
+    <Link to={isGame ? `/game/${id}` : `/application/${id}`}>
+      <Container>
+        <Scope20>
+          <Image bgUrl={artworkUrl100}></Image>
+        </Scope20>
+        <Scope60>
+          <Name>{name}</Name>
+          <Genre>{genresName}</Genre>
+        </Scope60>
+        <Scope20>
+          <Button target="_blank" href={url}>받기</Button>
+        </Scope20>
+      </Container>
+    </Link>
+    <Line></Line>
+  </>
 );
 
 Room.propTypes = {
