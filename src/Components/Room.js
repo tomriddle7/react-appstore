@@ -3,12 +3,27 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Container = styled("div")`
-  width:100%;
+const OuterContainer = styled("div")`
+  width: 100%;
+  background-color: #000000;
+  padding: 0px;
+  &:after {
+    content: '';
+			height: 0;
+			border-bottom: 1px #808084 solid;
+			left: 24px;
+			right: 24px;
+			position: absolute;
+  }
+`;
+
+const InnerContainer = styled("div")`
+  cursor: pointer;
+  width: 100%;
   display: flex;
   flex-direction: row;
   background-color: #000000;
-  padding: 2px 0px;
+  padding: 6px 0px;
 `;
 
 const Scope60 = styled("div")`
@@ -58,29 +73,22 @@ const Genre = styled("span")`
   color: #808084;
 `;
 
-const Line = styled.hr`
-  width: 95%;
-  color: #808084;
-`;
-
 const Room = ({ id, isGame, name, genresName, url, artworkUrl100 }) => (
-  <>
-    <Link to={isGame ? `/game/${id}` : `/application/${id}`}>
-      <Container>
-        <Scope20>
-          <Image bgUrl={artworkUrl100}></Image>
-        </Scope20>
-        <Scope60>
-          <Name>{name}</Name>
-          <Genre>{genresName}</Genre>
-        </Scope60>
-        <Scope20>
-          <Button target="_blank" href={url}>받기</Button>
-        </Scope20>
-      </Container>
-    </Link>
-    <Line></Line>
-  </>
+  <OuterContainer>
+    <InnerContainer onClick={() => {window.location = isGame ? '/#/game/'+id : '/#/application/'+id}}>
+      <Scope20>
+        <Image bgUrl={artworkUrl100}></Image>
+      </Scope20>
+      <Scope60>
+        <Name>{name}</Name>
+        <Genre>{genresName}</Genre>
+      </Scope60>
+      <Scope20>
+        <Button target="_blank" href={url}>받기</Button>
+      </Scope20>
+    </InnerContainer>
+  </OuterContainer>
+    
 );
 
 Room.propTypes = {

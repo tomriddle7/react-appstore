@@ -21,7 +21,7 @@ const GamePresenter = ({ topFreeGames, topPaidGames, error, loading }) => {
       {topFreeGames && topFreeGames.results && topFreeGames.results.length > 0 && (
         <Section title={topFreeGames.title}>
           {topFreeGames.results.map(p => (
-            <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
+            <Room key={parseInt(p.id)} id={p.id} isGame={true} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
           ))}
         </Section>
       )}
