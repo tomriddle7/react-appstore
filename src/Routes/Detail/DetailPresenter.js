@@ -54,15 +54,26 @@ const Button = styled("a")`
 
 const ScreenShotP = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-itmes: flex-start;
+  flex-direction: column;
+  height: 20%;
+  flex-wrap: wrap;
+  overflow: auto;
 `;
 
 const ScreenShot = styled.div`
+  display: inline;
   background-image: url(${props => props.bgUrl});
   background-position: center;
   background-size: cover;  
   width: 14vw;
   height: 30vw;
   margin: 2px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
 `;
 
 const UpdateviewP = styled.div`
@@ -134,8 +145,8 @@ const DetailPresenter = ({ loading, error, results, goBack }) =>
         
       </Summary>
       <ScreenShotP>
-        {results.screenshotUrls.map(p => (
-          <ScreenShot bgUrl={p}/>
+        {results.screenshotUrls.map((p, i) => (
+          <ScreenShot key={i} bgUrl={p}/>
         ))}
       </ScreenShotP>
       <h1>{results.description}</h1>
