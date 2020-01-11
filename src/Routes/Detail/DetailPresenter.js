@@ -57,7 +57,7 @@ const ScreenShotP = styled.div`
   justify-content: space-between;
   align-itmes: flex-start;
   flex-direction: column;
-  height: 20%;
+  height: 59vw;
   flex-wrap: wrap;
   overflow: auto;
   &:after {
@@ -75,8 +75,9 @@ const ScreenShot = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 60%;
+  width: 100%;
   height: 100%;
+  margin: 5px;
 `;
 
 const Explanation = styled.div`
