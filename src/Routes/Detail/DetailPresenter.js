@@ -60,23 +60,41 @@ const ScreenShotP = styled.div`
   height: 20%;
   flex-wrap: wrap;
   overflow: auto;
+  &:after {
+    content: '';
+      height: 0;
+      border-bottom: 1px #808084 solid;
+      left: 24px;
+      right: 24px;
+      position: absolute;
 `;
 
 const ScreenShot = styled.div`
   display: inline;
   background-image: url(${props => props.bgUrl});
   background-position: center;
-  background-size: cover;  
-  width: 14vw;
-  height: 30vw;
-  margin: 2px;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 100%;
+  width: 60%;
   height: 100%;
 `;
 
+const Explanation = styled.div`
+  line-height: 1.5;
+`;
+
 const UpdateviewP = styled.div`
+  &:after {
+    content: '';
+      height: 0;
+      border-bottom: 1px #808084 solid;
+      left: 24px;
+      right: 24px;
+      position: absolute;
+}
+`;
+
+const Updateview = styled.div`
   line-height: 1.5;
 `;
 
@@ -89,6 +107,14 @@ const Overview = styled.div`
   line-height: 1.5;
   display: flex;
   flex-direction: row;
+  margin: 8px 0px;
+  &:after {
+    content: '';
+      height: 0;
+      border-bottom: 1px #808084 solid;
+      left: 24px;
+      right: 24px;
+      position: absolute;
 `;
 
 const View = styled.h1`
@@ -99,11 +125,12 @@ const View = styled.h1`
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  overflow: hidden;
 `;
 
-const Data = styled.div`
-  width: 70%;
-  margin-left: 10px;
+const Title = styled.div`
+  font-size: 20px;
+  font-weight: 800;
 `;
 
 const ItemContainer = styled.div`
@@ -139,7 +166,9 @@ const DetailPresenter = ({ loading, error, results, goBack }) =>
           <h1>{results.artistName}</h1>
         </Scope>
         <Scope widthPer={20}>
-        <Button target="_blank" href={results.trackViewUrl}>{results.formattedPrice}</Button>
+        <Button target="_blank" href={results.trackViewUrl}>
+          {results.formattedPrice}
+        </Button>
         <h1>{results.trackContentRating}</h1>
         </Scope>
         
@@ -149,15 +178,15 @@ const DetailPresenter = ({ loading, error, results, goBack }) =>
           <ScreenShot key={i} bgUrl={p}/>
         ))}
       </ScreenShotP>
-      <h1>{results.description}</h1>
+      <Explanation>{results.description}</Explanation>
       <UpdateviewP>
-        <h1>새로운 기능</h1>
-        <h1>버전 {results.version}</h1>
-        <h1>{results.currentVersionReleaseDate.substr(0,4)}년 {results.currentVersionReleaseDate.substr(5,2)}월 {results.currentVersionReleaseDate.substr(8,2)}일</h1>
-        <h1>{results.releaseNotes}</h1>
+        <Title>새로운 기능</Title>
+        <Updateview>버전 {results.version}</Updateview>
+        <Updateview>{results.currentVersionReleaseDate.substr(0,4)}년 {results.currentVersionReleaseDate.substr(5,2)}월 {results.currentVersionReleaseDate.substr(8,2)}일</Updateview>
+        <Updateview>{results.releaseNotes}</Updateview>
       </UpdateviewP>
       <OverviewP>
-        <h1>정보</h1>
+        <Title>정보</Title>
         <Overview>
           <View align={"left"}>제공자</View>
           <View align={"right"}>{results.sellerName}</View>
