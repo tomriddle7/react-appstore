@@ -58,7 +58,7 @@ const ScreenShotP = styled.div`
   justify-content: space-between;
   align-itmes: flex-start;
   flex-direction: column;
-  height: 50vw;
+  height: 46vw;
   flex-wrap: wrap;
   overflow: auto;
   margin: 10px;
