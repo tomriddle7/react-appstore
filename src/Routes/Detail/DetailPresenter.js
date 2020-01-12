@@ -60,6 +60,7 @@ const ScreenShotP = styled.div`
   height: 60vw;
   flex-wrap: wrap;
   overflow: auto;
+  margin: 10px;
   &:after {
     content: '';
     height: 0;
@@ -74,7 +75,7 @@ const ScreenShot = styled.img`
   display: inline;
   width: auto;
   height: 100%;
-  margin: 5px;
+  margin: 0px 5px;
 `;
 
 const Explanation = styled.div`
