@@ -37,7 +37,7 @@ const SearchPresenters = ({
     <Helmet>
       <title>Search | NomadStore</title>
     </Helmet>
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className="mobileShow">
       <Input
         placeholder="🔍게임, 앱, 스토리 등"
         value={searchTerm}
