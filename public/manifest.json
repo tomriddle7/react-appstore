@@ -1,6 +1,6 @@
 {
   "short_name": "Nomad Store",
-  "name": "React Nomad App Store",
+  "name": "Nomad App Store",
   "icons": [
     {
       "src": "Apple_Favicon.ico",
@@ -16,6 +16,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#3eb5fd",
+  "background_color": "#000000",
   "orientation": "portrait"
 }
