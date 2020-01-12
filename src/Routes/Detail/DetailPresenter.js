@@ -6,7 +6,7 @@ import { Route, Link, withRouter } from "react-router-dom";
 import Loader from "../../Components/Loader";
 
 const Container = styled.div`
-  height: calc(100vh + 100px);
+  height: 100%;
   width: 100%;
   position: relative;
   padding: 20px;
@@ -35,7 +35,7 @@ const Icon = styled.div`
   border-radius: 22.37%;
 `;
 
-const Scope = styled("div")`
+const Scope = styled.div`
   width:${props => props.widthPer}vw;
   display: flex;
   flex-direction: column;
@@ -57,46 +57,56 @@ const ScreenShotP = styled.div`
   justify-content: space-between;
   align-itmes: flex-start;
   flex-direction: column;
-  height: 59vw;
+  height: 60vw;
   flex-wrap: wrap;
   overflow: auto;
   &:after {
     content: '';
-      height: 0;
-      border-bottom: 1px #808084 solid;
-      left: 24px;
-      right: 24px;
-      position: absolute;
+    height: 0;
+    border-bottom: 1px #808084 solid;
+    left: 24px;
+    right: 24px;
+    position: absolute;
+  }
 `;
 
-const ScreenShot = styled.div`
+const ScreenShot = styled.img`
   display: inline;
-  background-image: url(${props => props.bgUrl});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 100%;
+  width: auto;
   height: 100%;
   margin: 5px;
 `;
 
 const Explanation = styled.div`
   line-height: 1.5;
+  word-break: break-all;
+  &:after {
+    content: '';
+    height: 0;
+    border-bottom: 1px #808084 solid;
+    left: 24px;
+    right: 24px;
+    position: absolute;
+  }
 `;
 
 const UpdateviewP = styled.div`
   &:after {
     content: '';
-      height: 0;
-      border-bottom: 1px #808084 solid;
-      left: 24px;
-      right: 24px;
-      position: absolute;
-}
+    height: 0;
+    border-bottom: 1px #808084 solid;
+    left: 24px;
+    right: 24px;
+    position: absolute;
+  }
 `;
 
 const Updateview = styled.div`
+  width:100%;
   line-height: 1.5;
+  display: flex;
+  flex-direction: row;
+  margin: 8px 0px;
 `;
 
 const OverviewP = styled.div`
@@ -111,15 +121,16 @@ const Overview = styled.div`
   margin: 8px 0px;
   &:after {
     content: '';
-      height: 0;
-      border-bottom: 1px #808084 solid;
-      left: 24px;
-      right: 24px;
-      position: absolute;
+    height: 0;
+    border-bottom: 1px #808084 solid;
+    left: 24px;
+    right: 24px;
+    position: absolute;
+  }
 `;
 
-const View = styled.h1`
-  width:50%;
+const View = styled.div`
+  width:${props => props.widthPer}%;
   text-align: ${props => props.align};
   display: flex;
   flex-direction: column;
@@ -132,16 +143,6 @@ const View = styled.h1`
 const Title = styled.div`
   font-size: 20px;
   font-weight: 800;
-`;
-
-const ItemContainer = styled.div`
-  margin: 20px 0;
-`;
-
-const Item = styled.span``;
-
-const Divider = styled.span`
-  margin: 0 10px;
 `;
 
 const DetailPresenter = ({ loading, error, results, goBack }) =>
@@ -176,37 +177,39 @@ const DetailPresenter = ({ loading, error, results, goBack }) =>
       </Summary>
       <ScreenShotP>
         {results.screenshotUrls.map((p, i) => (
-          <ScreenShot key={i} bgUrl={p}/>
+          <ScreenShot key={i} src={p}/>
         ))}
       </ScreenShotP>
       <Explanation>{results.description}</Explanation>
       <UpdateviewP>
         <Title>새로운 기능</Title>
-        <Updateview>버전 {results.version}</Updateview>
-        <Updateview>{results.currentVersionReleaseDate.substr(0,4)}년 {results.currentVersionReleaseDate.substr(5,2)}월 {results.currentVersionReleaseDate.substr(8,2)}일</Updateview>
+        <Updateview>
+          <View widthPer={50} align={"left"}>버전 {results.version}</View>
+          <View widthPer={50} align={"right"}>{results.currentVersionReleaseDate.substr(0,4)}년 {results.currentVersionReleaseDate.substr(5,2)}월 {results.currentVersionReleaseDate.substr(8,2)}일</View>
+        </Updateview>
         <Updateview>{results.releaseNotes}</Updateview>
       </UpdateviewP>
       <OverviewP>
         <Title>정보</Title>
         <Overview>
-          <View align={"left"}>제공자</View>
-          <View align={"right"}>{results.sellerName}</View>
+          <View widthPer={25} align={"left"}>제공자</View>
+          <View widthPer={75} align={"right"}>{results.sellerName}</View>
         </Overview>
         <Overview>
-          <View align={"left"}>크기</View>
-          <View align={"right"}>{(results.fileSizeBytes/1024/1024).toFixed(1)}MB</View>
+          <View widthPer={25} align={"left"}>크기</View>
+          <View widthPer={75} align={"right"}>{(results.fileSizeBytes/1024/1024).toFixed(1)}MB</View>
         </Overview>
         <Overview>
-          <View align={"left"}>카테고리</View>
-          <View align={"right"}>{results.primaryGenreName}</View>
+          <View widthPer={25} align={"left"}>카테고리</View>
+          <View widthPer={75} align={"right"}>{results.primaryGenreName}</View>
         </Overview>
         <Overview>
-          <View align={"left"}>언어</View>
-          <View align={"right"}>{results.languageCodesISO2A}</View>
+          <View widthPer={25} align={"left"}>언어</View>
+          <View widthPer={75} align={"right"}>{results.languageCodesISO2A}</View>
         </Overview>
         <Overview>
-          <View align={"left"}>연령 등급</View>
-          <View align={"right"}>{results.contentAdvisoryRating}</View>
+          <View widthPer={25} align={"left"}>연령 등급</View>
+          <View widthPer={75} align={"right"}>{results.contentAdvisoryRating}</View>
         </Overview>
       </OverviewP>
     </Container>
