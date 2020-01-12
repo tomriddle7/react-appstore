@@ -12,18 +12,18 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const Content = styled.div`
-  display: flex;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  height: 100%;
+const BackButton = styled("a")`
+  cursor: pointer;
+  background: #00000000;
+  color: #0b84fe;
+  text-align: center;
 `;
 
 const Summary = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  margin: 10px;
 `;
 
 const Icon = styled.div`
@@ -36,15 +36,16 @@ const Icon = styled.div`
 `;
 
 const Scope = styled.div`
-  width:${props => props.widthPer}vw;
+  width: ${props => props.widthPer}vw;
   display: flex;
   flex-direction: column;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin: ${props => props.pxmargin}px;
 `;
 
-const Button = styled("a")`
+const StoreButton = styled("a")`
   border-radius: 25px;
   background: #1c1c1e;
   padding: 10px;
@@ -159,19 +160,19 @@ const DetailPresenter = ({ loading, error, results, goBack }) =>
       <Helmet>
           <title>{results.trackName} | NomadStore</title>
       </Helmet>
-      <button onClick={goBack}>뒤로가기</button>
+      <BackButton onClick={goBack}>◀홈화면</BackButton>
       <Summary>
-        <Scope widthPer={20}>
+        <Scope widthPer={20} pxmargin={0}>
           <Icon bgUrl={results.artworkUrl100}></Icon>
         </Scope>
-        <Scope widthPer={60}>
+        <Scope widthPer={50}pxmargin={5}>
           <h1>{results.trackName}</h1>
           <h1>{results.artistName}</h1>
         </Scope>
-        <Scope widthPer={20}>
-        <Button target="_blank" href={results.trackViewUrl}>
+        <Scope widthPer={30}pxmargin={0}>
+        <StoreButton target="_blank" href={results.trackViewUrl}>
           {results.formattedPrice}
-        </Button>
+        </StoreButton>
         <h1>{results.trackContentRating}</h1>
         </Scope>
         
