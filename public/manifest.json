@@ -4,7 +4,7 @@
   "icons": [
     {
       "src": "Apple_Favicon.ico",
-      "sizes": "128x128",
+      "sizes": "128x128 64x64",
       "type": "image/x-icon"
     },
     {
@@ -15,6 +15,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#3eb5fd",
-  "background_color": "#ffffff"
+  "theme_color": "#000000",
+  "background_color": "#3eb5fd",
+  "orientation": "portrait"
 }
