@@ -58,7 +58,7 @@ const ScreenShotP = styled.div`
   justify-content: space-between;
   align-itmes: flex-start;
   flex-direction: column;
-  height: 50vw;
+  height: 46vw;
   flex-wrap: wrap;
   overflow: auto;
   margin: 10px;
@@ -128,6 +128,9 @@ const Overview = styled.div`
     left: 24px;
     right: 24px;
     position: absolute;
+  }
+  &:last-child::after {
+		border-bottom: 0px #808084 solid;
   }
 `;
 

@@ -9,11 +9,14 @@ const OuterContainer = styled("div")`
   padding: 0px;
   &:after {
     content: '';
-			height: 0;
-			border-bottom: 1px #808084 solid;
-			left: 24px;
-			right: 24px;
-			position: absolute;
+		height: 0;
+		border-bottom: 1px #808084 solid;
+		left: 24px;
+		right: 24px;
+		position: absolute;
+  }
+  &:last-child::after {
+		border-bottom: 0px #808084 solid;
   }
 `;
 
