@@ -6,9 +6,13 @@ export default class extends React.Component {
   state = {
     topFreeGames: null,
     topPaidGames: null,
+    isToggle: false,
     error: null,
     loading: true
   };
+  toggleState = () => {
+    this.setState({isToggle: !this.state.isToggle})
+  }
   componentDidMount() {
     this.getGames();
   }
@@ -33,6 +37,16 @@ export default class extends React.Component {
     }
   };
   render() {
-    return <GamePresenter {...this.state} />;
+    const { topFreeGames, topPaidGames, isToggle, loading, error } = this.state;
+    return (
+      <GamePresenter
+        topFreeGames={topFreeGames}
+        topPaidGames={topPaidGames}
+        isToggle={isToggle}
+        error={error}
+        loading={loading}
+        toggleState={this.toggleState}
+      />
+    );
   }
 }

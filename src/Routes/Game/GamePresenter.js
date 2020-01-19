@@ -10,7 +10,18 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const GamePresenter = ({ topFreeGames, topPaidGames, error, loading }) => {
+const ToggleButton = styled.button`
+  border: 0px;
+  border-radius: 10px;
+  background: #1c1c1e;
+  padding: 5px;
+  width: 100%;
+  font-size:14pt;
+  color: #0b84fe;
+  text-align: center;
+`;
+
+const GamePresenter = ({ topFreeGames, topPaidGames, isToggle, error, loading, toggleState }) => {
   return loading ? (
     <Loader />
   ) : (
@@ -18,14 +29,15 @@ const GamePresenter = ({ topFreeGames, topPaidGames, error, loading }) => {
       <Helmet>
           <title>Games | NomadStore</title>
       </Helmet>
-      {topFreeGames && topFreeGames.results && topFreeGames.results.length > 0 && (
+      <ToggleButton onClick={toggleState}>{isToggle ? "Paid" : "Free"}</ToggleButton>
+      {topFreeGames && topFreeGames.results && topFreeGames.results.length > 0 && !isToggle && (
         <Section title={topFreeGames.title}>
           {topFreeGames.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={true} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
           ))}
         </Section>
       )}
-      {topPaidGames && topPaidGames.results && topPaidGames.results.length > 0 && (
+      {topPaidGames && topPaidGames.results && topPaidGames.results.length > 0 && isToggle && (
         <Section title={topPaidGames.title}>
           {topPaidGames.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
@@ -67,6 +79,7 @@ GamePresenter.propTypes = {
       name: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired
     }).isRequired),
+    isToggle:PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.string
   };

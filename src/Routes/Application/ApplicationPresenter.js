@@ -10,7 +10,18 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const ApplicationPresenter = ({ topFreeApps, topPaidApps, error, loading }) => {
+const ToggleButton = styled.button`
+  border: 0px;
+  border-radius: 10px;
+  background: #1c1c1e;
+  padding: 5px;
+  width: 100%;
+  font-size:14pt;
+  color: #0b84fe;
+  text-align: center;
+`;
+
+const ApplicationPresenter = ({ topFreeApps, topPaidApps, isToggle, error, loading, toggleState }) => {
   return loading ? (
     <Loader />
   ) : (
@@ -18,14 +29,15 @@ const ApplicationPresenter = ({ topFreeApps, topPaidApps, error, loading }) => {
       <Helmet>
           <title>Apps | NomadStore</title>
       </Helmet>
-      {topFreeApps && topFreeApps.results && topFreeApps.results.length > 0 && (
+      <ToggleButton onClick={toggleState}>{isToggle ? "Paid" : "Free"}</ToggleButton>
+      {topFreeApps && topFreeApps.results && topFreeApps.results.length > 0 && !isToggle && (
         <Section title={topFreeApps.title}>
           {topFreeApps.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
           ))}
         </Section>
       )}
-      {topPaidApps && topPaidApps.results && topPaidApps.results.length > 0 && (
+      {topPaidApps && topPaidApps.results && topPaidApps.results.length > 0 && isToggle && (
         <Section title={topPaidApps.title}>
           {topPaidApps.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
@@ -67,6 +79,7 @@ ApplicationPresenter.propTypes = {
       name: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired
     }).isRequired),
+    isToggle:PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
     error: PropTypes.string
   };
