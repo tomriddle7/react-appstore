@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Helmet from "react-helmet";
+import ToggleSwitch from "../../Components/ToggleSwitch";
 import Section from "../../Components/Section";
 import Loader from "../../Components/Loader";
 import Room from "../../Components/Room";
@@ -10,16 +11,8 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const ToggleButton = styled.button`
-  border: 0px;
-  border-radius: 10px;
-  background: #1c1c1e;
-  padding: 5px;
-  width: 100%;
-  font-size:14pt;
-  color: #0b84fe;
-  text-align: center;
-`;
+const text = ["Free", "Paid"];
+const chkID = "checkboxID";
 
 const ApplicationPresenter = ({ topFreeApps, topPaidApps, isToggle, error, loading, toggleState }) => {
   return loading ? (
@@ -29,15 +22,15 @@ const ApplicationPresenter = ({ topFreeApps, topPaidApps, isToggle, error, loadi
       <Helmet>
           <title>Apps | NomadStore</title>
       </Helmet>
-      <ToggleButton onClick={toggleState}>{isToggle ? "Paid" : "Free"}</ToggleButton>
-      {topFreeApps && topFreeApps.results && topFreeApps.results.length > 0 && !isToggle && (
+      <ToggleSwitch id={chkID} Text={text} disabled={false} onChange={toggleState} />
+      {topFreeApps && topFreeApps.results && topFreeApps.results.length > 0 && isToggle && (
         <Section title={topFreeApps.title}>
           {topFreeApps.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
           ))}
         </Section>
       )}
-      {topPaidApps && topPaidApps.results && topPaidApps.results.length > 0 && isToggle && (
+      {topPaidApps && topPaidApps.results && topPaidApps.results.length > 0 && !isToggle && (
         <Section title={topPaidApps.title}>
           {topPaidApps.results.map(p => (
             <Room key={parseInt(p.id)} id={p.id} isGame={false} name={p.name}   genresName={p.genres[0].name} url={p.url} artworkUrl100=  {p.artworkUrl100}/>
