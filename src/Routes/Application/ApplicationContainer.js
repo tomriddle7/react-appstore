@@ -6,7 +6,7 @@ export default class extends React.Component {
   state = {
     topFreeApps: null,
     topPaidApps: null,
-    isToggle: false,
+    isToggle: true,
     error: null,
     loading: true
   };

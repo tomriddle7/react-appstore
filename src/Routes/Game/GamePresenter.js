@@ -22,7 +22,7 @@ const GamePresenter = ({ topFreeGames, topPaidGames, isToggle, error, loading, t
       <Helmet>
           <title>Games | NomadStore</title>
       </Helmet>
-      <ToggleSwitch id={chkID} Text={text} disabled={false} onChange={toggleState} />
+      <ToggleSwitch id={chkID} Text={text} checked={isToggle} defaultChecked={isToggle} disabled={false} onChange={toggleState} />
       {topFreeGames && topFreeGames.results && topFreeGames.results.length > 0 && isToggle && (
         <Section title={topFreeGames.title}>
           {topFreeGames.results.map(p => (

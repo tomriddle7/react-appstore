@@ -22,7 +22,7 @@ const ApplicationPresenter = ({ topFreeApps, topPaidApps, isToggle, error, loadi
       <Helmet>
           <title>Apps | NomadStore</title>
       </Helmet>
-      <ToggleSwitch id={chkID} Text={text} disabled={false} onChange={toggleState} />
+      <ToggleSwitch id={chkID} Text={text} checked={isToggle} defaultChecked={isToggle} disabled={false} onChange={toggleState} />
       {topFreeApps && topFreeApps.results && topFreeApps.results.length > 0 && isToggle && (
         <Section title={topFreeApps.title}>
           {topFreeApps.results.map(p => (
