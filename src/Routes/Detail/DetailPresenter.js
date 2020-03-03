@@ -103,11 +103,17 @@ const UpdateviewP = styled.div`
   }
 `;
 
-const Updateview = styled.div`
+const UpdateDate = styled.div`
   width:100%;
   line-height: 1.5;
   display: flex;
   flex-direction: row;
+  margin: 8px 0px;
+`;
+
+const UpdateDetail = styled.div`
+  width:100%;
+  line-height: 1.5;
   margin: 8px 0px;
 `;
 
@@ -185,14 +191,18 @@ const DetailPresenter = ({ loading, error, results, goBack }) =>
           <ScreenShot key={i} src={p}/>
         ))}
       </ScreenShotP>
-      <Explanation>{results.description}</Explanation>
+      <Explanation>{results.description.split('\n').map( line => {
+            return (<span>{line}<br/></span>)
+          })}</Explanation>
       <UpdateviewP>
         <Title>새로운 기능</Title>
-        <Updateview>
+        <UpdateDate>
           <View widthPer={50} align={"left"}>버전 {results.version}</View>
           <View widthPer={50} align={"right"}>{results.currentVersionReleaseDate.substr(0,4)}년 {results.currentVersionReleaseDate.substr(5,2)}월 {results.currentVersionReleaseDate.substr(8,2)}일</View>
-        </Updateview>
-        <Updateview>{results.releaseNotes}</Updateview>
+        </UpdateDate>
+        <UpdateDetail>{results.releaseNotes.split('\n').map( line => {
+            return (<span>{line}<br/></span>)
+          })}</UpdateDetail>
       </UpdateviewP>
       <OverviewP>
         <Title>정보</Title>
