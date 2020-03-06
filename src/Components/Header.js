@@ -10,7 +10,7 @@ const Header = styled.header`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 50px;
   display: flex;
   align-items: center;
   background-color: rgba(20, 20, 20);
@@ -43,16 +43,16 @@ export default withRouter(({ location: { pathname } }) => (
   <Header className="mobileShow">
     <List>
       <Item current={pathname === "/"}>
-        <SLink to="/"><FontAwesomeIcon icon={faClipboard} size="2x"/>Home</SLink>
+        <SLink to="/"><FontAwesomeIcon icon={faClipboard} />Home</SLink>
       </Item>
       <Item current={pathname === "/application"}>
-        <SLink to="/application"><FontAwesomeIcon icon={faLayerGroup} size="2x"/>App</SLink>
+        <SLink to="/application"><FontAwesomeIcon icon={faLayerGroup} />App</SLink>
       </Item>
       <Item current={pathname === "/game"}>
-        <SLink to="/game"><FontAwesomeIcon icon={faRocket} size="2x"/>Game</SLink>
+        <SLink to="/game"><FontAwesomeIcon icon={faRocket} />Game</SLink>
       </Item>
       <Item current={pathname === "/search"}>
-        <SLink to="/search"><FontAwesomeIcon icon={faSearch} size="2x"/>Search</SLink>
+        <SLink to="/search"><FontAwesomeIcon icon={faSearch} />Search</SLink>
       </Item>
     </List>
   </Header>
