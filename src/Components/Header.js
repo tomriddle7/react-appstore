@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import styled from "styled-components";
+import { faClipboard, faRocket, faLayerGroup, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = styled.footer`
   color: white;
@@ -24,9 +26,9 @@ const Item = styled.li`
   width: 25vw;
   height: 50px;
   text-align: center;
-  border-bottom: 3px solid
-    ${props => (props.current ? "#0b84fe" : "transparent")};
-  transition: border-bottom 0.5s ease-in-out;
+  color: 
+    ${props => (props.current ? "#0b84fe" : "ffffff")};
+  transition: color 0.2s ease-in-out;
 `;
 
 const SLink = styled(Link)`
@@ -40,16 +42,16 @@ export default withRouter(({ location: { pathname } }) => (
   <Footer className="mobileShow">
     <List>
       <Item current={pathname === "/"}>
-        <SLink to="/">Home</SLink>
+        <SLink to="/"><FontAwesomeIcon icon={faClipboard} />Home</SLink>
       </Item>
       <Item current={pathname === "/application"}>
-        <SLink to="/application">App</SLink>
+        <SLink to="/application"><FontAwesomeIcon icon={faRocket} />App</SLink>
       </Item>
       <Item current={pathname === "/game"}>
-        <SLink to="/game">Game</SLink>
+        <SLink to="/game"><FontAwesomeIcon icon={faLayerGroup} />Game</SLink>
       </Item>
       <Item current={pathname === "/search"}>
-        <SLink to="/search">Search</SLink>
+        <SLink to="/search"><FontAwesomeIcon icon={faSearch} />Search</SLink>
       </Item>
     </List>
   </Footer>

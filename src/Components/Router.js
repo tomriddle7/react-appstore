@@ -5,7 +5,7 @@ import {
   Redirect,
   Switch
 } from "react-router-dom";
-import Footer from "./Footer";
+import Header from "./Header";
 import Home from "../Routes/Home";
 import Application from "../Routes/Application";
 import Game from "../Routes/Game";
@@ -24,7 +24,7 @@ export default () => (
         <Route path="/game/:id" component={Detail} />
         <Redirect from="*" to="/" />
       </Switch>
-      <Footer />
+      <Header />
     </>
   </Router>
 );
