@@ -1,19 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
+  position: absolute;
+  top:0;right:0;bottom:0;left:0;
   display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: 28px;
-  margin-top: 20px;
+  display: -webkit-flex;
+  -webkit-align-item: center;
+  -webkit-justify-content: center;
 `;
 
 export default () => (
   <Container className="mobileShow">
-    <span role="img" aria-label="Loading">
-      ⏰
-    </span>
+    <FontAwesomeIcon icon={faSpinner} size="6x" pulse />
   </Container>
 );
