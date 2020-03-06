@@ -4,13 +4,13 @@ import styled from "styled-components";
 import { faClipboard, faRocket, faLayerGroup, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Footer = styled.footer`
+const Header = styled.header`
   color: white;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 60px;
   display: flex;
   align-items: center;
   background-color: rgba(20, 20, 20);
@@ -34,25 +34,26 @@ const Item = styled.li`
 const SLink = styled(Link)`
   height: 50px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
 export default withRouter(({ location: { pathname } }) => (
-  <Footer className="mobileShow">
+  <Header className="mobileShow">
     <List>
       <Item current={pathname === "/"}>
-        <SLink to="/"><FontAwesomeIcon icon={faClipboard} />Home</SLink>
+        <SLink to="/"><FontAwesomeIcon icon={faClipboard} size="2x"/>Home</SLink>
       </Item>
       <Item current={pathname === "/application"}>
-        <SLink to="/application"><FontAwesomeIcon icon={faLayerGroup} />App</SLink>
+        <SLink to="/application"><FontAwesomeIcon icon={faLayerGroup} size="2x"/>App</SLink>
       </Item>
       <Item current={pathname === "/game"}>
-        <SLink to="/game"><FontAwesomeIcon icon={faRocket} />Game</SLink>
+        <SLink to="/game"><FontAwesomeIcon icon={faRocket} size="2x"/>Game</SLink>
       </Item>
       <Item current={pathname === "/search"}>
-        <SLink to="/search"><FontAwesomeIcon icon={faSearch} />Search</SLink>
+        <SLink to="/search"><FontAwesomeIcon icon={faSearch} size="2x"/>Search</SLink>
       </Item>
     </List>
-  </Footer>
+  </Header>
 ));
