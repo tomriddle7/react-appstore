@@ -45,10 +45,10 @@ export default withRouter(({ location: { pathname } }) => (
         <SLink to="/"><FontAwesomeIcon icon={faClipboard} />Home</SLink>
       </Item>
       <Item current={pathname === "/application"}>
-        <SLink to="/application"><FontAwesomeIcon icon={faRocket} />App</SLink>
+        <SLink to="/application"><FontAwesomeIcon icon={faLayerGroup} />App</SLink>
       </Item>
       <Item current={pathname === "/game"}>
-        <SLink to="/game"><FontAwesomeIcon icon={faLayerGroup} />Game</SLink>
+        <SLink to="/game"><FontAwesomeIcon icon={faRocket} />Game</SLink>
       </Item>
       <Item current={pathname === "/search"}>
         <SLink to="/search"><FontAwesomeIcon icon={faSearch} />Search</SLink>
