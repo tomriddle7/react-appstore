@@ -220,7 +220,7 @@ const DetailPresenter = ({ loading, error, results, goBack }) =>
         </Overview>
         <Overview>
           <View widthPer={25} align={"left"}>언어</View>
-          <View widthPer={75} align={"right"}>{results.languageCodesISO2A}</View>
+          <View widthPer={75} align={"right"}>{results.languageCodesISO2A.join(' | ')}</View>
         </Overview>
         <Overview>
           <View widthPer={25} align={"left"}>연령 등급</View>
