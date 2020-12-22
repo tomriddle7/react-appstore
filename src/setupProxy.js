@@ -1,20 +1,23 @@
-const proxy = require('http-proxy-middleware');
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = function(app) {
   app.use(
-    proxy('/api', {
+    '/api',
+    createProxyMiddleware({
       target: 'https://rss.itunes.apple.com',
       changeOrigin: true,
     })
   );
   app.use(
-    proxy('/lookup', {
+    '/lookup',
+    createProxyMiddleware({
       target: 'https://itunes.apple.com',
       changeOrigin: true,
     })
   );
   app.use(
-    proxy('/search', {
+    '/search',
+    createProxyMiddleware({
       target: 'https://itunes.apple.com',
       changeOrigin: true,
     })

@@ -1,6 +1,6 @@
 import React from "react";
 import SearchPresenter from "./SearchPresenter";
-import { getSearch } from "../../api";
+import { storeApi } from "../../api";
 
 export default class extends React.Component {
   state = {
@@ -33,7 +33,7 @@ export default class extends React.Component {
     try {
       const {
         data: { results: appResults }
-      } = await getSearch(searchTerm);
+      } = await storeApi.getSearch(searchTerm);
       this.setState({
         appResults
       });

@@ -1,6 +1,6 @@
 import React from "react";
 import DetailPresenter from "./DetailPresenter";
-import { getDetail } from "../../api";
+import { storeApi } from "../../api";
 
 export default class extends React.Component {
   state = {
@@ -26,7 +26,7 @@ export default class extends React.Component {
       if (isNaN(parsedId)) {
         return push("/");
       }
-      const { data: detail } = await getDetail(parsedId);
+      const { data: detail } = await storeApi.getDetail(parsedId);
       this.setState({
         results: detail.results[0]
       });

@@ -1,6 +1,6 @@
 import React from "react";
 import GamePresenter from "./GamePresenter";
-import { getTopFreeGames, getTopPaidGames } from "../../api";
+import { storeApi } from "../../api";
 
 export default class extends React.Component {
   state = {
@@ -20,10 +20,10 @@ export default class extends React.Component {
     try {
       const {
         data: { feed: topFreeGames }
-      } = await getTopFreeGames();
+      } = await storeApi.getTopFreeGames();
       const {
         data: { feed: topPaidGames }
-      } = await getTopPaidGames();
+      } = await storeApi.getTopPaidGames();
       this.setState({
         topFreeGames,
         topPaidGames

@@ -1,6 +1,6 @@
 import React from "react";
 import HomePresenter from "./HomePresenter";
-import { getUpcomingApps, getUpcomingGames } from "../../api";
+import { storeApi } from "../../api";
 
 export default class extends React.Component {
   state = {
@@ -16,10 +16,10 @@ export default class extends React.Component {
     try {
       const {
         data: { feed: upcomingApps }
-      } = await getUpcomingApps();
+      } = await storeApi.getUpcomingApps();
       const {
         data: { feed: upcomingGames }
-      } = await getUpcomingGames();
+      } = await storeApi.getUpcomingGames();
       this.setState({
         upcomingApps,
         upcomingGames

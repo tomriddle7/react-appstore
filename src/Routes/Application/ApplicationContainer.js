@@ -1,6 +1,6 @@
 import React from "react";
 import ApplicationPresenter from "./ApplicationPresenter";
-import { getTopFreeApps, getTopPaidApps } from "../../api";
+import { storeApi } from "../../api";
 
 export default class extends React.Component {
   state = {
@@ -20,10 +20,10 @@ export default class extends React.Component {
     try {
       const {
         data: { feed: topFreeApps }
-      } = await getTopFreeApps();
+      } = await storeApi.getTopFreeApps();
       const {
         data: { feed: topPaidApps }
-      } = await getTopPaidApps();
+      } = await storeApi.getTopPaidApps();
       this.setState({
         topFreeApps,
         topPaidApps
