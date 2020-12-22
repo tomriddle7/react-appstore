@@ -15,7 +15,7 @@ const BigScreen = styled.div`
 export default () => (
   <BigScreen className="desktopShow">
     <span>
-      Please make your screen small! 😱
+      Please make your screen small! {`\u{1f631}`}
     </span>
   </BigScreen>
 );
