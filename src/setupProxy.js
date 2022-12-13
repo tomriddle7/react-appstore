@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://rss.itunes.apple.com',
+      target: 'https://rss.applemarketingtools.com',
       changeOrigin: true,
     })
   );
