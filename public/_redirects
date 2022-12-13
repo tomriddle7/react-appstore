@@ -1,3 +1,4 @@
-/api              https://rss.applemarketingtools.com  200
-/lookup           https://itunes.apple.com      200
-/search           https://itunes.apple.com      200
+/api/*              https://rss.applemarketingtools.com  200
+/lookup/*           https://itunes.apple.com      200
+/search/*           https://itunes.apple.com      200
+/*                  /index.html 200
